@@ -6,9 +6,65 @@
 
   	body{
   		background-color:lightgreen;
+  		background-image: url('img/Triforce.png');
   	}
 
   	.navbar{
   		background-color:lightgreen;
+  	}
+
+
+  	.thumbnail {
+  		position: relative;
+  		width: 200px;
+  		height: 200px;
+  		overflow: hidden;
+  		background-color:lightblue;
+  	}
+  	.thumbnail img {
+  		position: absolute;
+  		left: 50%;
+  		top: 50%;
+  		height: 100%;
+  		width: auto;
+  		-webkit-transform: translate(-50%,-50%);
+  		-ms-transform: translate(-50%,-50%);
+  		transform: translate(-50%,-50%);
+  	}
+  	.thumbnail img.portrait {
+  		width: 100%;
+  		height: auto;
+  	}
+
+
+
+  	.slide1{
+  		background-image: url('img/botw.jpg');
+  		height: 500px;
+  		background-repeat: no-repeat;
+  		background-position: center;
+  		background-size: cover;
+  	}
+  	.slide2{
+  		background-image: url('img/linkvsganon.jpg');
+  		height: 500px;
+  		background-repeat: no-repeat;
+  		background-position: center;
+  		background-size: cover;
+  	}
+  	.slide3{
+  		background-image: url('img/linkovertime.jpg');
+  		height: 500px;
+  		background-repeat: no-repeat;
+  		background-position: center;
+  		background-size: cover;
+  	}
+  	.carousel-caption h1{
+  		font-size: 5.4em;
+  		font-family: 'Pacifico', cursive;
+  		padding-bottom: .4em;
+  	}
+  	.carousel-caption p{
+  		font-size: 2em;
   	}
   </style>
