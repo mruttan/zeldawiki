@@ -1,3 +1,82 @@
 <div class="page-header">
 <h3>Maps</h3>
 </div>
+
+{{!-- Map and all leaflet javascript goes here, map css included in css.handlebars --}}
+<div id="mapid"></div>
+<script>
+// var map = new L.Map('mapid', {
+// center: new L.LatLng(500, 500),
+// zoom: 4,
+// minZoom: 0,
+// maxZoom: 18,
+// layers: [
+//     L.tileLayer('img/map_ww.jpg', {
+//     maxZoom: 4,
+//     minZoom: 0
+// 	 }),
+//     L.tileLayer('img/botw.jpg', {
+//     minZoom: 5,
+//     maxZoom: 18
+//   })
+// ]});
+
+
+
+	var map = L.map('mapid', {
+    crs: L.CRS.Simple
+	});
+
+	var bounds = [[0,0], [1000,1000]];
+	var image = L.imageOverlay('img/map_ww.jpg', bounds).addTo(map);
+
+	var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
+    imageBounds = [[40.712216, 74.22655], [500.773941, 574.12544]];
+
+	L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+map.on('zoomend', function () {
+    if (map.getZoom() > 9) {
+        L.imageOverlay(imageUrl, imageBounds).addTo(map);
+    }
+    if (map.getZoom() < 9)
+    {
+        image;
+    }   
+});
+
+// // Experimenting with placing markers, planning on placing markers at important locations with screenshots on zoomin
+// var sol      = L.latLng(175.2, 145.0);
+// var mizar    = L.latLng( 41.6, 130.1);
+// var kruegerZ = L.latLng( 13.4,  56.5);
+// var deneb    = L.latLng(218.7,   8.3);
+
+// L.marker(     sol).addTo(map).bindPopup(      'Sol');
+// L.marker(   mizar).addTo(map).bindPopup(    'Mizar');
+// L.marker(kruegerZ).addTo(map).bindPopup('Krueger-Z');
+// L.marker(   deneb).addTo(map).bindPopup(    'Deneb');
+
+// var travel = L.polyline([sol, deneb]).addTo(map);
+
+
+
+
+// 	L.TileLayer.Kitten = L.TileLayer.extend({
+//     getTileUrl: function(coords) {
+//         var i = Math.ceil( Math.random() * 4 );
+//         return "http://placekitten.com/256/256?image=" + i;
+//     },
+//     getAttribution: function() {
+//         return "<a href='http://placekitten.com/attribution.html'>PlaceKitten</a>"
+//     }
+// });
+
+// L.tileLayer.kitten = function() {
+//     return new L.TileLayer.Kitten();
+// }
+
+// L.tileLayer.kitten().addTo(map);
+
+
+	map.fitBounds(bounds);
+</script>
