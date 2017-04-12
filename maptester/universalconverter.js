@@ -21,6 +21,10 @@ var imageSize = im.identify('map_ww.jpg', function(err, features){
   }
 
 
+  for (let x = 0; x < features.width; x += tileSize) {
+					for (let y = 0; y < features.height; y += tileSize) {
+					
+
 
 });
 
